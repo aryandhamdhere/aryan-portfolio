@@ -422,9 +422,7 @@ const Projects = () => {
     { title: "ConsultX", tag: "STRATEGY", desc: "\"Apna Kirana\" digital ecosystem. Top 10 / 200+ teams.", stats: ["MECE model", "+8.5% EBITDA", "+208% profit"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> },
     { title: "Trade Smarter", tag: "AI/ML", desc: "ML + Neural Net algo trading.", stats: ["73% win rate", "5-year backtest"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> },
     { title: "Sustanium", tag: "AI", desc: "1st Prize. AI spectral classification.", stats: ["95% sorting acc.", "-25% labor cost"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> },
-    { title: "Agentic Supply Chain", tag: "RESEARCH", desc: "IIM Mumbai RA. Knowledge Graphs + IoT.", stats: ["real-time sync"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> },
-    { title: "Catalyst", tag: "EDTECH", desc: "Edtech platform scaling to 5000+ students across 20+ states.", stats: ["₹2.5L+ rev", "Live Site"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>, link: "https://catalyst-website.netlify.app/" },
-    { title: "FinSight", tag: "FINTECH", desc: "Interactive financial insights and onboarding platform.", stats: ["Live Site"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>, link: "https://fin-sight-rouge-two.vercel.app/onboarding" }
+    { title: "Agentic Supply Chain", tag: "RESEARCH", desc: "IIM Mumbai RA. Knowledge Graphs + IoT.", stats: ["real-time sync"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> }
   ];
   return (
     <section id="work" style={{ position: 'relative', padding: '120px 5%', overflow: 'hidden' }}>
@@ -433,6 +431,47 @@ const Projects = () => {
         <h2 className="bebas" style={{ fontSize: '48px', marginBottom: '60px' }}>WHAT I DO</h2>
         <div className="grid-2x2" style={{ display: 'grid', gap: '20px' }}>
           {projs.map((p, i) => <ProjectCard key={i} {...p} />)}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FeaturedSites = () => {
+  const ref1 = useReveal();
+  const ref2 = useReveal();
+  return (
+    <section id="platforms" style={{ padding: '20px 5% 100px', position: 'relative', overflow: 'hidden' }}>
+      <div className="section-container">
+        <h2 className="bebas" style={{ fontSize: '48px', marginBottom: '40px' }}>LIVE PLATFORMS</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
+          
+          <a href="https://catalyst-website.netlify.app/" target="_blank" rel="noopener noreferrer" ref={ref1} className="reveal site-card" style={{
+            display: 'block', padding: '60px 40px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(255,60,172,0.1), rgba(1,1,10,0.8))',
+            border: '1px solid rgba(255,60,172,0.3)', transition: 'all 0.4s ease', textDecoration: 'none', position: 'relative', overflow: 'hidden'
+          }}>
+            <div className="hover-glow" style={{ position: 'absolute', top: '-50%', left: '-50%', width: '200%', height: '200%', background: 'radial-gradient(circle, rgba(255,60,172,0.15) 0%, transparent 60%)', opacity: 0, transition: 'opacity 0.4s ease', zIndex: 0, pointerEvents: 'none' }}></div>
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <h3 className="bebas" style={{ fontSize: '56px', color: '#fff', marginBottom: '10px' }}>CATALYST</h3>
+              <div style={{ color: '#FF3CAC', fontSize: '14px', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>EdTech Platform / 5k+ Students</div>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', marginBottom: '40px', lineHeight: 1.6 }}>Incubated at IIT Bombay. Scaling education across 20+ states with a massive live ecosystem and ₹2.5L+ revenue generation.</p>
+              <div className="btn-neon" style={{ display: 'inline-block', borderColor: '#FF3CAC', color: '#FF3CAC', boxShadow: 'none' }}>LAUNCH PLATFORM ↗</div>
+            </div>
+          </a>
+
+          <a href="https://fin-sight-rouge-two.vercel.app/onboarding" target="_blank" rel="noopener noreferrer" ref={ref2} className="reveal reveal-stagger-1 site-card" style={{
+            display: 'block', padding: '60px 40px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(0,255,178,0.1), rgba(1,1,10,0.8))',
+            border: '1px solid rgba(0,255,178,0.3)', transition: 'all 0.4s ease', textDecoration: 'none', position: 'relative', overflow: 'hidden'
+          }}>
+            <div className="hover-glow" style={{ position: 'absolute', top: '-50%', left: '-50%', width: '200%', height: '200%', background: 'radial-gradient(circle, rgba(0,255,178,0.15) 0%, transparent 60%)', opacity: 0, transition: 'opacity 0.4s ease', zIndex: 0, pointerEvents: 'none' }}></div>
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <h3 className="bebas" style={{ fontSize: '56px', color: '#fff', marginBottom: '10px' }}>FINSIGHT</h3>
+              <div style={{ color: '#00FFB2', fontSize: '14px', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>FinTech / Data Onboarding</div>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', marginBottom: '40px', lineHeight: 1.6 }}>Interactive onboarding interface delivering robust financial analytics and strategic insights in real time.</p>
+              <div className="btn-neon" style={{ display: 'inline-block' }}>LAUNCH PLATFORM ↗</div>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -594,6 +633,8 @@ a, button { cursor: none; color: inherit; text-decoration: none; }
 .ticker-content { animation: ticker 25s linear infinite; font-size: 15px; }
 .grid-2x2 { grid-template-columns: 1fr; }
 .project-card-inner { flex-direction: row; }
+.site-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+.site-card:hover .hover-glow { opacity: 1 !important; }
 @media (min-width: 768px) { .grid-2x2 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
   .nav-links { display: none !important; }
@@ -611,6 +652,7 @@ a, button { cursor: none; color: inherit; text-decoration: none; }
          <Ticker />
          <Experience />
          <Projects />
+         <FeaturedSites />
          <Awards />
          <Contact />
       </main>
