@@ -331,7 +331,7 @@ const Experience = () => {
   );
 };
 
-const ProjectCard = ({ title, desc, tag, stats, span2, icon }) => {
+const ProjectCard = ({ title, desc, tag, stats, span2, icon, link }) => {
   const revealRef = useReveal();
   const cardRef = useRef(null);
   const [hover, setHover] = useState(false);
@@ -396,16 +396,22 @@ const ProjectCard = ({ title, desc, tag, stats, span2, icon }) => {
           ))}
         </div>
       </div>
-      <div className="project-card-arrow" style={{
-        width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0,
-        background: hover ? '#00FFB2' : 'rgba(255,255,255,0.05)',
-        display: 'flex', justifyContent: 'center', alignItems: 'center',
-        transition: 'all 0.3s ease'
-      }}>
+      {React.createElement(link ? 'a' : 'div', {
+        href: link,
+        target: link ? '_blank' : undefined,
+        rel: link ? 'noopener noreferrer' : undefined,
+        className: 'project-card-arrow',
+        style: {
+          width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0,
+          background: hover ? '#00FFB2' : 'rgba(255,255,255,0.05)',
+          display: 'flex', justifyContent: 'center', alignItems: 'center',
+          transition: 'all 0.3s ease'
+        }
+      }, (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={hover ? '#01010A' : '#00FFB2'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
-      </div>
+      ))}
       </div>
     </div>
   );
@@ -416,7 +422,9 @@ const Projects = () => {
     { title: "ConsultX", tag: "STRATEGY", desc: "\"Apna Kirana\" digital ecosystem. Top 10 / 200+ teams.", stats: ["MECE model", "+8.5% EBITDA", "+208% profit"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> },
     { title: "Trade Smarter", tag: "AI/ML", desc: "ML + Neural Net algo trading.", stats: ["73% win rate", "5-year backtest"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> },
     { title: "Sustanium", tag: "AI", desc: "1st Prize. AI spectral classification.", stats: ["95% sorting acc.", "-25% labor cost"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> },
-    { title: "Agentic Supply Chain", tag: "RESEARCH", desc: "IIM Mumbai RA. Knowledge Graphs + IoT.", stats: ["real-time sync"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> }
+    { title: "Agentic Supply Chain", tag: "RESEARCH", desc: "IIM Mumbai RA. Knowledge Graphs + IoT.", stats: ["real-time sync"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> },
+    { title: "Catalyst", tag: "EDTECH", desc: "Edtech platform scaling to 5000+ students across 20+ states.", stats: ["₹2.5L+ rev", "Live Site"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>, link: "https://catalyst-website.netlify.app/" },
+    { title: "FinSight", tag: "FINTECH", desc: "Interactive financial insights and onboarding platform.", stats: ["Live Site"], icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>, link: "https://fin-sight-rouge-two.vercel.app/onboarding" }
   ];
   return (
     <section id="work" style={{ position: 'relative', padding: '120px 5%', overflow: 'hidden' }}>
